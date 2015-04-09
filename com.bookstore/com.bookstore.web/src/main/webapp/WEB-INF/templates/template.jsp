@@ -5,19 +5,36 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> 
 
 <html>
 	<head>
-		<spring:url value="resources/css/style.css" var="bookstoreCss" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>Bookstore - </title>
+		<spring:url value="/resources/css/style.css" var="bookstoreCss" />
 		<link rel="stylesheet" type="text/css" href="${bookstoreCss}" />
+		<spring:url value="/resources/dijit/themes/tundra/tundra.css"	var="tundraCss" />
+		<link type="text/css" rel="stylesheet" href="${tundraCss}" />
+
+		<spring:url value="/resources/dojo/dojo.js"	var="dojo" />
+		<script type="text/javascript" src="${dojo}"><!----></script>
+		<spring:url value="/resources/spring/Spring.js"	var="springJs" />
+		<script type="text/javascript" src="${springJs}"> <!----></script>
+		<spring:url value="/resources/spring/Spring-Dojo.js" var="springDojo" />
+		<script type="text/javascript" src="${springDojo}"><!----></script>
 	</head>
-	<body>
-		<tiles:insertAttribute name="header"/>
-        <tiles:insertAttribute name="content"/>  
+
+	<body class="tundra">
+		<div id="wrap">
+			<tiles:insertAttribute name="header"/>
+
+       	<div class="center_content">
+			<div class="left_content">
+            	<tiles:insertAttribute name="content"/>            
+        	</div><!--end of left content-->
         
         	<div class="right_content">
-      	     	<div class="right_box">
+      	     <div class="right_box">
 			       <div class="title">
 						<spring:url value="/resources/images/bullet4.gif" var="bullet4"/>
 						<span class="title_icon"><img src="${bullet4}" alt="" title="" /></span>
@@ -33,10 +50,11 @@
                             </div>           
                         </div>
                     </c:forEach>
-           	  	</div>
-           	  </div>        
-        
-                  
-		<tiles:insertAttribute name="footer"/>         
-	</body> 
+           	  		</div>
+           	  </div>
+			<div class="clear"></div>
+			</div><!--end of center content-->
+			<tiles:insertAttribute name="footer"/>         
+    	</div>
+	</body>
 </html>

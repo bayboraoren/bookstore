@@ -12,4 +12,12 @@
         <put-attribute name="content" value="/WEB-INF/view/main.jsp"/>
     </definition>    
     
+	<definition name="book/detail" extends="fullTemplate">
+        <put-attribute name="content" value="/WEB-INF/view/book/detail.jsp"/>
+    </definition>	
+    
+	<definition name="login" extends="fullTemplate">
+        <put-attribute name="content" value="/WEB-INF/view/authentication/login.jsp"/>
+    </definition>	
+	
 </tiles-definitions>

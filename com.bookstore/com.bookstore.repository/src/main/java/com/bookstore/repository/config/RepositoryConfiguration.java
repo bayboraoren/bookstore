@@ -17,6 +17,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 /**
  * Configures the main infrastructure related beans such as:
  * 
@@ -24,11 +25,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * <li>Creates the {@link EntityManagerFactory} based upon information in the META-INF/persistence.xml
  * <li>Creates a JPA local transaction manager</li>
  * <li>Creates a datasource to a local database</li>
+ * h2 console jdbc:h2:mem:testdb
  * </ul>
  * 
  * @author Marten Deinum
  * @author Koen Serneels
  */
+
 
 @Configuration
 @EnableTransactionManagement

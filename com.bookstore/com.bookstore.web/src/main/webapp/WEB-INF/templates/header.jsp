@@ -9,19 +9,27 @@
 	<div class="header">
 		<div class="logo">
 			<spring:url value="/index.htm" var="home" />
-			<spring:url value="/resources/images/logo.gif" var="logo" /> 
+			<a href="${home}">
+				<spring:url value="/resources/images/logo.gif" var="logo" /> 
+				<img src="${logo}" alt="" title="" border="0" /><br/>
+			</a>
+			
 		</div>
 		<div class="nav">
 			<ul>
 				<li>
-					<spring:message code="nav.home"/></a>
+					<a href="${home}"><spring:message code="nav.home"/></a>
 				</li>
 				<li>
-				    createOrders
+					<spring:url value="/login.htm" var="login" />
+					<a href="${login}"><spring:message code="nav.login"/></a>
 				</li>
-				<li>
-					login
-				</li>
+				<c:if test="${sessionScope.authenticatedAccount ne null}">
+					<li>
+	                	<spring:url value="/logout" var="logout" />
+    	            	<a href="${logout}"><spring:message code="nav.logout"/> ${sessionScope.authenticatedAccount.username}</a>
+        	        </li>
+				</c:if>
 				
 			</ul>
 			<ul style="float: right;">
@@ -30,7 +38,5 @@
                 <li><a href="?lang=en" class="selected"><img src="${gb}" alt="" title="" border="0" /></a></li>
                 <li><a href="?lang=nl"><img src="${nl}" alt="" title="" border="0" /></a></li>
             </ul>
-			
-			
 		</div>
 	</div>

@@ -12,11 +12,7 @@
 	<name>Web</name>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>3.2.3.RELEASE</version>
-		</dependency>
+
 
 		<dependency>
 			<groupId>javax.servlet</groupId>

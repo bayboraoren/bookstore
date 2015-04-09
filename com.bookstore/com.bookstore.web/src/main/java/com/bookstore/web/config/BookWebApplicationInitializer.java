@@ -20,7 +20,7 @@ public class BookWebApplicationInitializer implements WebApplicationInitializer 
 			throws ServletException {
 
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(WebMvcContextConfiguration.class);
+		rootContext.register(WebMvcContextConfiguration.class,ServiceConfiguration.class,RepositoryConfiguration.class);
 		
 		
 		servletContext.addListener(new ContextLoaderListener(rootContext));
@@ -32,9 +32,15 @@ public class BookWebApplicationInitializer implements WebApplicationInitializer 
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");		
 		
-		
+		//h2 console jdbc:h2:mem:testdb
+	 	ServletRegistration.Dynamic h2Servlet = servletContext.addServlet("h2Servlet", new org.h2.server.web.WebServlet());
+        h2Servlet.setLoadOnStartup(1);
+        h2Servlet.addMapping("/h2/*");        		
 		
 		
 	}
+	
+	
+	 
 	
 }
